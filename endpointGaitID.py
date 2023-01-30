@@ -11,15 +11,15 @@ def successfulConnection():
 @app.route("/addMedia", methods=['POST', "GET"])
 def importMedia():
     if request.method == 'POST':
-        videoTitle = request.json['videoTitle']
-        videoDuration = request.json['videoDuration']
+        videoId = request.json['videoId']
+        videoUri = request.json['videoUri']
 
         response = {
-            "Recieved Title: ": videoTitle,
-            "Duration of video: ": videoDuration
+            "Recieved Title: ": videoId,
+            "Duration of video: ": videoUri
         }
 
-        print(videoDuration, videoTitle)
+        print("Video uri: ", videoUri, "Video ID: ",videoId)
 
         return jsonify(response)
     if request.method == "GET":
