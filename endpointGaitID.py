@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
+import base64
 
 app = Flask(__name__)
-
 
 @app.route("/")
 def successfulConnection():
@@ -12,8 +12,6 @@ def base64Endpoint():
     if request.method == 'POST':
         videoBase64 = request.json['videoBase64']
         videoUri = request.json["videoUri"]
-        # print("Video Base64: ", videoBase64)
-        print("bas64 endpoint reached succesfully")
 
         f = open("base64.txt", "w")
         f.write(videoBase64)
@@ -55,9 +53,14 @@ def importMedia():
 
 
 def personIdentification(video):
+
+    with open("./Assets/returned_person.jpeg", "rb") as image2string:
+        imageBase64 = base64.b64encode(image2string.read())
+
     response = {
         'userFound' : 'true',
-        'userName':'Akeem',
-        'userID':"001",
+        'userImageBase64': str(imageBase64),
+        'userName':'Akeem Malky',
+        'userID':"010876853",
     }
     return response
