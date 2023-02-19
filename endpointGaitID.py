@@ -3,9 +3,10 @@ import base64
 
 app = Flask(__name__)
 
-
-# if __name__ == '__main__':
-#     app.run(port=8000, debug=True)
+# Command to run program
+# flask --app endpointGaitID run -h 192.168.1.144
+# 192.168.1.144 - specific to computer
+# https://stackoverflow.com/questions/7023052/configure-flask-dev-server-to-be-visible-across-the-network
 
 @app.route("/")
 def successfulConnection():
