@@ -3,6 +3,10 @@ import base64
 
 app = Flask(__name__)
 
+
+# if __name__ == '__main__':
+#     app.run(port=8000, debug=True)
+
 @app.route("/")
 def successfulConnection():
     return "<p>Connection was established successfully!</p>"
