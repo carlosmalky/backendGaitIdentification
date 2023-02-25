@@ -1,12 +1,15 @@
 from flask import Flask, request, jsonify
 import base64
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.sql import text
 
 app = Flask(__name__)
 
 # Command to run program
-# flask --app endpointGaitID run -h 192.168.1.144
+# flask --app endpointGaitID --debug run -h 192.168.1.144
 # 192.168.1.144 - specific to computer
 # https://stackoverflow.com/questions/7023052/configure-flask-dev-server-to-be-visible-across-the-network
+
 
 @app.route("/")
 def successfulConnection():
@@ -69,3 +72,6 @@ def personIdentification(video):
         'userID':"010876853",
     }
     return response
+
+if __name__ == '__main__':
+    app.run(debug=True)
