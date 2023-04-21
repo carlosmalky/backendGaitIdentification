@@ -6,8 +6,9 @@ from sqlalchemy.sql import text
 app = Flask(__name__)
 
 # Command to run program
-# flask --app endpointGaitID --debug run -h 192.168.1.144
-# 192.168.1.144 - specific to computer
+# flask --app endpointGaitID --debug run -h 192.168.1.144 //Puritan
+# flask --app endpointGaitID --debug run -h 192.168.0.167 //Doomsday
+# 10.35.39.180 - specific to computer
 # https://stackoverflow.com/questions/7023052/configure-flask-dev-server-to-be-visible-across-the-network
 
 
@@ -68,10 +69,12 @@ def personIdentification(video):
     response = {
         'userFound' : 'true',
         'userImageBase64': str(imageBase64),
+        'userVideoBase64' : str(video),
         'userName':'Akeem Malky',
         'userID':"010876853",
     }
     return response
 
 if __name__ == '__main__':
+    print("Backend running!")
     app.run(debug=True)
